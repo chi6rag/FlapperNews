@@ -43,4 +43,6 @@ h5.post-link {
 .new-post-form >input {
 	padding: 1.5em;
 	margin: 0.5em 0.5em 0.5em 0em;
+	border-radius: 2px;
+  border-color: lightgrey;
 }
