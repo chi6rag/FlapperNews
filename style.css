@@ -1,0 +1,46 @@
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.row {
+	margin-bottom: 1em;
+}
+
+.post-wrapper {
+	border: 1px solid #efefef;
+	padding: 1em;
+}
+
+.post-wrapper:hover {
+	border: 1px solid #fff3c6;
+}
+
+.post-image {
+	min-height: 100px;
+	padding-left: 0px;
+}
+
+.post-content {
+}
+
+.post-image > img {
+	width: 100%; height: auto;
+}
+
+.post-title {
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+h5.post-link {
+	color: grey;
+}
+
+.new-post-wrapper {
+	padding-left: 0px;
+}
+
+.new-post-form >input {
+	padding: 1.5em;
+	margin: 0.5em 0.5em 0.5em 0em;
+}
