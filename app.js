@@ -11,8 +11,16 @@ flapperNews = angular.module('flapperNews', [])
 			{ title: 'five lorem', upvotes: 500  }
 		];
 		$scope.addPost = function(title){
-			if($scope.title==undefined || $scope.title.match(/^\s+$/)){return;}
-			$scope.posts.push({title: title, upvotes: 0});
+			if($scope.title==undefined || $scope.title.match(/^\s+$/)){ return; }
+			$scope.posts.push({
+				title: $scope.title,
+				link: $scope.link,
+				upvotes: 0
+			});
 			$scope.title = '';
+			$scope.link = '';
+		};
+		$scope.incrementUpvotes = function(post){
+			post.upvotes += 1
 		};
 }]);
