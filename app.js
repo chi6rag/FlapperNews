@@ -4,14 +4,15 @@ flapperNews.config([
 	'$stateProvider',
 	'$urlRouterProvider',
 	function($stateProvider, $urlRouterProvider){
+
 		$stateProvider
 		  .state('home', {
 		  	url: '/home',
-		  	templateUrl: 'home.html',
+		  	templateUrl: '/home.html',
 		  	controller: 'MainCtrl'
 		  });
 
-		$urlRouterProvider.otherwise('home');
+		$urlRouterProvider.otherwise('/home');
 	}
 ]);
 

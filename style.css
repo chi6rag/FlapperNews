@@ -6,6 +6,10 @@ body {
 	margin-bottom: 1em;
 }
 
+.page-header {
+	text-align: center;
+}
+
 .post-wrapper {
 	border: 1px solid #efefef;
 	padding: 1em;
