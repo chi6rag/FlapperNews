@@ -10,6 +10,12 @@ flapperNews.config([
 		  	url: '/home',
 		  	templateUrl: '/home.html',
 		  	controller: 'MainCtrl'
+		  })
+
+		  .state('posts', {
+		  	url: 'posts/{id}',
+		  	templateUrl: 'posts.html',
+		  	controller: 'PostsCtrl'
 		  });
 
 		$urlRouterProvider.otherwise('/home');
@@ -35,6 +41,24 @@ flapperNews.controller('MainCtrl', [
 			post.upvotes += 1
 		};
 }]);
+
+flapperNews.controller('PostsCtrl', [
+	'$scope', '$stateParams', 'posts',
+	function($scope, $stateParams, posts){
+		$scope.posts.push({
+			title: 'First Post',
+			upvotes: 100,
+			link: 'https://www.example.com',
+			comments: [
+				{ author: 'Chirag', body: 'lorem ipsum dolor', upvotes: 0 },
+				{ author: 'Ishan', body: 'lorem ipsum dolor', upvotes: 0 },
+				{ author: 'Arnav', body: 'lorem ipsum dolor', upvotes: 0 },
+				{ author: 'Saurav', body: 'lorem ipsum dolor', upvotes: 0 },
+				{ author: 'Laavanya', body: 'lorem ipsum dolor', upvotes: 0 },
+			]
+		});
+	}
+]);
 
 flapperNews.factory('posts', [function(){
 	var output = {};
