@@ -9,9 +9,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider){
 		.state('about', {
 			url: '/about',
 			templateUrl: 'partial-about.html'
-		});
-
-		
+		});		
 
 	$urlRouterProvider.otherwise('/home');
 });
