@@ -1,4 +1,5 @@
-flapperNews = angular.module('flapperNews', [])
+flapperNews = angular.module('flapperNews', ['ui.router'])
+
 .controller('MainCtrl', [
 	'$scope', 'posts',
 	function($scope, posts){
