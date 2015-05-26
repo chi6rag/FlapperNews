@@ -1,6 +1,21 @@
-flapperNews = angular.module('flapperNews', ['ui.router'])
+var flapperNews = angular.module('flapperNews', ['ui.router']);
 
-.controller('MainCtrl', [
+flapperNews.config([
+	'$stateProvider',
+	'$urlRouterProvider',
+	function($stateProvider, $urlRouterProvider){
+		$stateProvider
+		  .state('home', {
+		  	url: '/home',
+		  	templateUrl: 'home.html',
+		  	controller: 'MainCtrl'
+		  });
+
+		$urlRouterProvider.otherwise('home');
+	}
+]);
+
+flapperNews.controller('MainCtrl', [
 	'$scope', 'posts',
 	function($scope, posts){
 		$scope.posts = posts.posts;
