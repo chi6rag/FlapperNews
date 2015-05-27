@@ -13,7 +13,7 @@ flapperNews.config([
 		  })
 
 		  .state('posts', {
-		  	url: 'posts/{id}',
+		  	url: '/posts/{id}',
 		  	templateUrl: 'posts.html',
 		  	controller: 'PostsCtrl'
 		  });
@@ -45,18 +45,21 @@ flapperNews.controller('MainCtrl', [
 flapperNews.controller('PostsCtrl', [
 	'$scope', '$stateParams', 'posts',
 	function($scope, $stateParams, posts){
-		$scope.posts.push({
-			title: 'First Post',
-			upvotes: 100,
-			link: 'https://www.example.com',
+		$scope.posts = posts.posts;
+		var postToPush = {
+			title: 'Pushed Post',
+			upvotes: 0,
+			link: 'http://chi6rag.example.com',
 			comments: [
 				{ author: 'Chirag', body: 'lorem ipsum dolor', upvotes: 0 },
 				{ author: 'Ishan', body: 'lorem ipsum dolor', upvotes: 0 },
 				{ author: 'Arnav', body: 'lorem ipsum dolor', upvotes: 0 },
 				{ author: 'Saurav', body: 'lorem ipsum dolor', upvotes: 0 },
-				{ author: 'Laavanya', body: 'lorem ipsum dolor', upvotes: 0 },
+				{ author: 'Laavanya', body: 'lorem ipsum dolor', upvotes: 0 }
 			]
-		});
+		}
+		$scope.posts.push(postToPush);
+		$scope.selected_post = posts.posts[$stateParams.id]
 	}
 ]);
 
