@@ -50,17 +50,33 @@ flapperNews.controller('PostsCtrl', [
 	'$scope', 'posts', '$stateParams',
 	function($scope, posts, $stateParams){
 		$scope.post = posts.posts[$stateParams.id];
+		$scope.addComment = function(){
+			console.log($scope.post.comments);
+			if($scope.post == undefined
+				 || $scope.commentAuthor.match(/^\s+$/)
+				 || $scope.commentBody.match(/^\s+$/) ){
+				return;
+			};
+			comment = {
+				author: $scope.commentAuthor,
+				body: $scope.commentBody,
+				upvotes: 0
+			};
+			$scope.post.comments.push(comment);
+			$scope.commentAuthor = "";
+			$scope.commentBody = "";
+		};
 	}
 ]);
 
 flapperNews.factory('posts', [function(){
 	var output = {};
 	output.posts = [
-		{ title: 'First Post', upvotes: 100, link: 'https://www.example.com' },
-		{ title: 'Second Post', upvotes: 200, link: 'https://www.example.com' },
-		{ title: 'Third Post', upvotes: 300, link: 'https://www.example.com' },
-		{ title: 'Fourth Post', upvotes: 400, link: 'https://www.example.com'  },
-		{ title: 'Fifth Post', upvotes: 500, link: 'https://www.example.com'  }
+		{ title: 'First Post', upvotes: 100, link: 'https://www.example.com', comments: [] },
+		{ title: 'Second Post', upvotes: 200, link: 'https://www.example.com', comments: [] },
+		{ title: 'Third Post', upvotes: 300, link: 'https://www.example.com', comments: [] },
+		{ title: 'Fourth Post', upvotes: 400, link: 'https://www.example.com', comments: []  },
+		{ title: 'Fifth Post', upvotes: 500, link: 'https://www.example.com', comments: []  }
   ];
   return output;
 }]);

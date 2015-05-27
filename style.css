@@ -38,6 +38,10 @@ body {
 	width: 100%; height: auto;
 }
 
+.post-title-hyperlink:hover {
+	text-decoration: none;
+}
+
 .post-title {
 	margin-top: 10px;
 	margin-bottom: 15px;
@@ -84,6 +88,11 @@ h5.post-link {
 .comment-body {
 	text-align: justify;
 }
+
+.comment-body > .comment-author {
+	color: rgb(153, 153, 153);
+}
+
 .comment-upvotes {
 	text-align: right;
 	padding-right: 0.3em;
@@ -92,5 +101,10 @@ h5.post-link {
 .upvotes-wrapper .fa-comment-o:before {
   position: relative;
   bottom: 1px;
+}
+
+.new-comment-author, .new-comment-body {
+	padding: 1.4em;
+	margin-bottom: 1em;
 }
 /* posts/{{id}} */

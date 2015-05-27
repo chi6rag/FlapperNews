@@ -17,7 +17,7 @@
 	Angular Loads? {{1+1 ? true : false}}
 	<div class="row">
 		<div class="container">
-				<ui-view></ui-view>
+			<ui-view></ui-view>
 		</div>
 	</div>
 
@@ -35,7 +35,7 @@
 						<img src="http://placehold.it/100x100/2c3e50">
 					</div>
 					<div class="col-md-10 col-sm-9 col-xs-8 post-content">
-						<h3 class='post-title'>{{ post.title }}</h3>
+						<a href='#/posts/{{$index}}' class='post-title-hyperlink'><h3 class='post-title'>{{ post.title }}</h3></a>
 
 						<h5 class="post-link" ng-show='post.link'>{{ post.link }}</h5>
 						<div class='row container-fluid upvotes-wrapper'>
@@ -44,7 +44,7 @@
 							&nbsp;&nbsp;&nbsp;
 							<a href='#/posts/{{$index}}'>
 								<i class="fa fa-comment-o"> 
-									{{post.comments.length>0 ? this : 0}}
+									{{post.comments.length>0 ? post.comments.length : 0}}
 								</i>
 							</a>
 						</div>
@@ -60,6 +60,7 @@
 						</form>
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</script>
@@ -72,12 +73,35 @@
 				</h3>
 			</div>
 
+			<ol class="breadcrumb">
+			  <li><a href='#/home'>Posts</a></li>
+			  <li>{{post.id}}</li>
+			</ol>
+
 			<div ng-repeat='comment in post.comments | orderBy: "-upvotes"' class='col-md-6 col-md-offset-3 comment-wrapper'>
 				<div class='col-md-1 user-dp'><img src='http://placehold.it/75x75/2c3e50' /></div>
-				<div class='col-md-10 comment-body'>{{comment.body}}</div>
+				<div class='col-md-10 comment-body'>
+					<div class="comment-author">{{comment.author}}</div>
+					{{comment.body}}
+				</div>
 				<div class='col-md-1 comment-upvotes'>
 					<i class="fa fa-thumbs-o-up" style="cursor: pointer; cursor: hand;"></i>
 					{{comment.upvotes}}
+				</div>
+			</div>
+
+			<div class='row'>
+				<div class='col-md-6 col-md-offset-3'>
+					
+					<h4>Join the discussion</h4>
+					<div class='new-comment'>
+						<form class='new-comment-form' ng-submit='addComment()'>
+							<input type='text' placeholder='Your Name' class='new-comment-author form-control' ng-model='commentAuthor' />
+							<textarea placeholder='Leave a message ...' class='new-comment-body form-control' ng-model='commentBody'></textarea>
+							<button class='btn btn-primary'>Share your views</button>
+						</form>
+					</div>
+
 				</div>
 			</div>
 
