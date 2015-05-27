@@ -79,13 +79,13 @@
 			</ol>
 
 			<div ng-repeat='comment in post.comments | orderBy: "-upvotes"' class='col-md-6 col-md-offset-3 comment-wrapper'>
-				<div class='col-md-1 user-dp'><img src='http://placehold.it/75x75/2c3e50' /></div>
-				<div class='col-md-10 comment-body'>
+				<div class='col-md-1 col-sm-2 col-xs-2 user-dp'><img src='http://placehold.it/75x75/2c3e50' /></div>
+				<div class='col-md-10 col-sm-8 col-xs 8 comment-body'>
 					<div class="comment-author">{{comment.author}}</div>
 					{{comment.body}}
 				</div>
-				<div class='col-md-1 comment-upvotes'>
-					<i class="fa fa-thumbs-o-up" style="cursor: pointer; cursor: hand;"></i>
+				<div class='col-md-1 col-sm-2 col-xs-2 comment-upvotes'>
+					<i class="fa fa-thumbs-o-up" style="cursor: pointer; cursor: hand;" ng-click='incrementUpvotes(comment)'></i>
 					{{comment.upvotes}}
 				</div>
 			</div>

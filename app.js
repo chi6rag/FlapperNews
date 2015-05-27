@@ -50,6 +50,7 @@ flapperNews.controller('PostsCtrl', [
 	'$scope', 'posts', '$stateParams',
 	function($scope, posts, $stateParams){
 		$scope.post = posts.posts[$stateParams.id];
+		
 		$scope.addComment = function(){
 			console.log($scope.post.comments);
 			if($scope.post == undefined
@@ -66,6 +67,11 @@ flapperNews.controller('PostsCtrl', [
 			$scope.commentAuthor = "";
 			$scope.commentBody = "";
 		};
+
+		$scope.incrementUpvotes = function(comment){
+			comment.upvotes += 1;
+		}
+
 	}
 ]);
 
